@@ -14,9 +14,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/num_training_images_barchart.png "Number of Training Images by type"
-[image2]: ./examples/normalized.jpg "normalized images"
-[image3]: ./examples/random_noise.jpg "Random Noise"
+[image1]: ./data/num_training_images_bar_chart.png "Number of Training Images by type"
+[image2]: ./data/normalized.png "normalized images"
 [image4]: ./data/sign1.jpg "Traffic Sign 1"
 [image5]: ./data/sign2.jpg "Traffic Sign 2"
 [image6]: ./data/sign3.jpg "Traffic Sign 3"
