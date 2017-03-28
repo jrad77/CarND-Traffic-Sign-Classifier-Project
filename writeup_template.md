@@ -54,7 +54,7 @@ of traffic sign and then plot the frequency of each sign in the training data se
 
 ### Design and Test a Model Architecture
 
-#### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+#### 1. Describe how, and identify where in your code, you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
 
 The code for this step is contained in the fourth code cell of the IPython notebook.
 
@@ -83,21 +83,21 @@ The model is laid out in fifth, sixth, and seventh code cells.
 | tanh                  |                                               |
 | Fully connected       | 240 input, outputs 100                        |
 | tanh                  |                                               |
-| Fully connected       | 100 input, outpus 43                          |
+| Fully connected       | 100 input, outputs 43                          |
 | Softmax				| Softmax on the logits to output probabilities |
 | Cross Entropy         |    Cross entropy to select prediction         |
 
 I started with the basic LeNet from the previous lab and was able to get around
-93% accuracy on the validation set. However, I skimmed through [the suggested paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) and somehwat replicated its architecture by adding the extra convolutional layer and fully connected layers, as well as using tanh instead of relus. Using tanh instead of the relus actually resulted in more than 1% gain in validation accuracy.
+93% accuracy on the validation set. However, I skimmed through [the suggested paper](http://yann.lecun.com/exdb/publis/pdf/sermanet-ijcnn-11.pdf) and somewhat replicated its architecture by adding the extra convolutional layer and fully connected layers, as well as using tanh instead of relus. Using tanh instead of the relus actually resulted in more than 1% gain in validation accuracy.
 
 I tried to ensure that the model would be 'too big' for the data sets and went as far as to add a 1x1 convolutional layer to add parameters without transforming the image.
 
-Using this model I was able to acheive over 96% on validation accuracy and 
+Using this model I was able to achieve over 96% on validation accuracy and 
 95% accuracy on the test set, indicating that the model was not overtrained.
 
 #### 3. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-The code for training the model is located in the seventh, eigth, and ninth cells of the ipython notebook. 
+The code for training the model is located in the seventh, eight, and ninth cells of the ipython notebook. 
 
 To train the model, I used the Adam Optimizer which computes adaptive learning rates for each parameter and utilizes 'momentum' to help steer the gradient descent towards the minima. The function being minimized was the simple cross entropy of the one-hot encoded labels.
 
@@ -105,7 +105,7 @@ I used a batch size of 128, a learning rate of 0.0001, and 100 epochs. I played 
 
 #### 4. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
-The code for calculating the accuracy of the model is located in the eigth and ninth cells of the Ipython notebook.
+The code for calculating the accuracy of the model is located in the eight and ninth cells of the Ipython notebook.
 
 My final model results were:
 * validation set accuracy of 0.965 
@@ -127,11 +127,17 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8]
 
-The first image might be difficult to classify because ...
+The first image might be difficult to classify because it is at a skewed angle
+and has strong background features behind it. The second image is kind of noisy
+at full resolution and gets much worse when scaled down to 32x32. The third
+image may be difficult because the sign is worn out and has additional elements
+on it. The fourth image is also has some wear on it. Finally, the fifth sign is
+fairly clear, but the network has been trained on  very similar looking signs
+in different classes as well.
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-The code for making predictions on my final model is located in the twelth cell of the Ipython notebook.
+The code for making predictions on my final model is located in the twelfth cell of the Ipython notebook.
 
 Here are the results of the prediction:
 
